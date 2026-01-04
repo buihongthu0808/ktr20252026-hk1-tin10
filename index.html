@@ -242,7 +242,7 @@
         <div id="login-screen" class="card w-full p-6 md:p-10 space-y-6">
             <div class="text-center space-y-2">
                 <h1 class="text-xl md:text-2xl font-bold text-var-text-primary leading-tight">
-                    KIỂM TRA GIỮA HỌC KỲ I<br>NĂM HỌC 2025 – 2026
+                    KIỂM TRA HỌC KÌ I<br>NĂM HỌC 2025 – 2026
                 </h1>
                 <p class="text-md font-semibold text-var-text-secondary">
                     MÔN: Tin học – LỚP: 10
@@ -368,6 +368,9 @@
         
         const MAX_VIOLATIONS = 5; 
 
+        // Khóa lưu trữ đã được thay đổi để reset lại danh sách học sinh đã thi
+        const storageKey = 'completedStudents_tin10_gki_2025_official';
+
         // Dữ liệu học sinh
         const studentData = {
             "10A1": [
@@ -396,7 +399,7 @@
             ],
             "10A5": [
                 "Phạm Thái An", "Đặng Trần Lê Anh", "Nguyễn Việt Anh", "Vũ Hồng Anh", "Lê Thùy Chi", 
-                "Trinh Thanh Chúc", "Hoàng Anh Dũng", "Phạm Viết Dũng", "Đinh Tiến Duy", "Lưu Đình Duy", 
+                "Trịnh Thanh Chúc", "Hoàng Anh Dũng", "Phạm Viết Dũng", "Đinh Tiến Duy", "Lưu Đình Duy", 
                 "Phạm Tuấn Duy", "Trần Khang Duy", "Phạm Ngọc Đoan", "Vũ Minh Đức", "Trịnh Nguyên Giáp", 
                 "Bùi Đức Hải", "Trần Thu Hằng", "Trịnh Xuân Hiền", "Hoàng Trung Hiếu", "Phạm Thu Hoài", 
                 "Phạm Thị Huế", "Nguyễn Duy Hùng", "Bùi Đình Nhật Huy", "Lương Gia Huy", "Trần Khánh Huyền", 
@@ -425,8 +428,6 @@
         let violationCount = 0; 
         let isQuizActive = false; 
         let isWarningModalOpen = false; 
-        
-        const storageKey = 'completedStudents_tin10_gki_2025';
 
         function getCompletedStudents() {
             const data = localStorage.getItem(storageKey);
